@@ -1,12 +1,14 @@
-while True:
-    print('Enter your age: ')
-    age = input()
-    if age.isdecimal():
-        break
-    print('Please enter a valid number.')
-while True:
-    print('Enter new password: ')
-    password = input()
-    if password.isalnum():
-        break
-    print('Please enter alphanumeric only.')
+import pyperclip
+
+text = pyperclip.paste()
+alt_text = ''
+make_uppercase = False
+for char in text:
+    if make_uppercase:
+        alt_text += char.upper()
+    else:
+        alt_text += char.lower()
+    make_uppercase = not make_uppercase
+
+print(alt_text)
+pyperclip.copy(alt_text)
